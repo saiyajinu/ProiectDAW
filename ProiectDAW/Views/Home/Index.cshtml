@@ -3,24 +3,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h2>Locations</h2>
+<h1 class="text-center">ReviewPRO!<br /> Find the best place in your city!</h1>
+<br />
+<br />
+<div>Latest 5star review</div>
+@if (ViewBag.location != null)
+{
+    <div>@ViewBag.location.Name</div>
+    <div>@ViewBag.review.Comment</div>
+    <div>@ViewBag.location.Schedule</div>
+}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var location in Model)
-        {
-            <tr>
-                <td>
-                    <a href="@Url.Action("Details", "Location", new { id = location.Id })">@location.Name</a>
-                </td>
-                <td>@location.Description</td>
-            </tr>
-        }
-    </tbody>
-</table>
+

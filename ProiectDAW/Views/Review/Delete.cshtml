@@ -1,25 +1,25 @@
 ﻿@model Review
 
 
-<h2>Add Review</h2>
+<h2>Delete Review</h2>
 
 
-<form method="post">
+<form method="post" asp-action="DeletePOST" asp-route-reviewId="@ViewData["reviewId"]">
     <div asp-validation-summary="All"></div>
     <div>
         <label asp-for="LocationId" value="@ViewBag.locationId">Location Id = @ViewBag.locationId</label>
     </div>
     <div>
         <label asp-for="Comment">Comment</label>
-        <input asp-for="Comment" />
+        <input asp-for="Comment" disabled />
         <span asp-validation-for="Comment" class="text-danger"></span>
     </div>
     <div>
         <label asp-for="Rating">Rating</label>
-        <input asp-for="Rating" type="number" min="1" max="5" />
+        <input asp-for="Rating" type="number" min="1" max="5" disabled />
         <span asp-validation-for="Rating" class="text-danger"></span>
     </div>
     <input asp-for="LocationId" type="hidden" />
-    <button type="submit">Submit</button>
+    <button type="submit">Delete</button>
     <a asp-controller="Review" asp-action="Index" asp-route-locationId="@ViewBag.locationId">Back to all reviews of @ViewData["location"]</a>
 </form>

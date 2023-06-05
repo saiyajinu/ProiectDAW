@@ -1,4 +1,8 @@
 ﻿@model ProiectDAW.Models.MyViewModel
+@{
+    bool hasReview = false;
+    var hasReviewId = 0;
+}
 
 
 <h2>Reviews for @ViewData["location"]</h2>
@@ -15,7 +19,11 @@
     <tbody>
         @foreach (var review in Model.reviews)
         {
-
+            @if (Model.users.Find(review.UserId).UserName == User.Identity.Name )
+            {
+                hasReview = true;
+                hasReviewId = review.Id;
+            }
             <tr>
                 <td width="20%">@Model.users.First(u => u.Id == review.UserId)</td>
                 <td width="70%">@review.Comment</td>
@@ -26,4 +34,13 @@
 
 </table>
 
-<a asp-action="Create" asp-route-locationId="@ViewBag.locationId">Add Review</a>
+@if (hasReview)
+{
+    <a asp-action="Edit" asp-route-reviewId="@hasReviewId">Edit your Review</a>
+    <a asp-action="Delete" asp-route-reviewId="@hasReviewId">Delete your Review</a>
+}
+else
+{
+    <a asp-action="Create" asp-route-locationId="@ViewBag.locationId">Add Review</a>
+}
+

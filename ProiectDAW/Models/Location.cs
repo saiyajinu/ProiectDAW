@@ -1,4 +1,7 @@
-﻿namespace ProiectDAW.Models
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace ProiectDAW.Models
 {
     public class Location
     {
@@ -6,9 +9,10 @@
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
-        public string PhoneNumber { get; set; } = string.Empty;
+        [DisplayName("Phone Number")]
+        public string PhoneNumber { get; set; } = string.Empty;       
         public string Schedule { get; set; } = string.Empty;
         public string PhotoUrl { get; set; } = string.Empty;
-        public virtual ApplicationUser User { get; set; }
+        public virtual ApplicationUser? User { get; set; }
     }
 }

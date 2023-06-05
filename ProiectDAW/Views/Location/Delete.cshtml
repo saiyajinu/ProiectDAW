@@ -1,45 +1,46 @@
 ﻿@model Location
+@{
+    var id = ViewData["locationId"];
+}
 
 
-<h2>Add Location</h2>
+<h2>Delete Location</h2>
 
 
-<form method="post" enctype="multipart/form-data" asp-controller="Location" asp-action="Create">
+<form method="post" asp-action="DeletePOST" asp-route-locationId="@id">
     <div asp-validation-summary="All"></div>
     <div>
         <label asp-for="Name">Name</label>
-        <input asp-for="Name" />
+        <input asp-for="Name" disabled />
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div>
         <label asp-for="Description">Description</label>
-        <input asp-for="Description" />
+        <input asp-for="Description" disabled />
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
     <div>
         <label asp-for="Address">Address</label>
-        <input asp-for="Address" />
+        <input asp-for="Address" disabled />
         <span asp-validation-for="Address" class="text-danger"></span>
     </div>
     <div>
         <label asp-for="PhoneNumber">Phone Number</label>
-        <input asp-for="PhoneNumber" />
+        <input asp-for="PhoneNumber" disabled />
         <span asp-validation-for="PhoneNumber" class="text-danger"></span>
     </div>
     <div>
         <label asp-for="Schedule">Schedule</label>
-        <input asp-for="Schedule" />
+        <input asp-for="Schedule" disabled />
         <span asp-validation-for="Schedule" class="text-danger"></span>
     </div>
-    <div>
-        <input class="form-control" type="file" name="locationImage" />
-    </div>
 
-    <button type="submit">Submit</button>
+
+    <button type="submit">Delete</button>
     <a asp-controller="Home" asp-action="Index">Back to home</a>
 </form>
 @section Scripts
-{
+    {
     @{
         <partial name="_ValidationScriptsPartial" />
     }

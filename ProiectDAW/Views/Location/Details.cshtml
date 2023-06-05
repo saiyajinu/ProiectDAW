@@ -14,5 +14,17 @@
     <h4>Schedule:</h4>
     <p>@Model.Schedule</p>
 </div>
+@if(Model.PhotoUrl != null)
+{
+    <div>
+        <h4>Photo:</h4>
+        <img src="@Model.PhotoUrl" alt=" no photo yet" />
+    </div>
+}
+
+
+<a asp-controller="Location" asp-action="Edit" asp-route-locationId="@Model.Id">Edit</a>
+
+<a asp-controller="Location" asp-action="Delete" asp-route-locationId="@Model.Id">Delete</a>
 
 <a asp-controller="Review" asp-action="Index" asp-route-locationId="@Model.Id">View Reviews</a>

@@ -1,10 +1,13 @@
 ﻿@model Location
+@{
+    var id = ViewData["locationId"];
+}
 
 
-<h2>Add Location</h2>
+<h2>Edit Location</h2>
 
 
-<form method="post" enctype="multipart/form-data" asp-controller="Location" asp-action="Create">
+<form method="post" asp-action="EditPOST" asp-route-locationId="@id">
     <div asp-validation-summary="All"></div>
     <div>
         <label asp-for="Name">Name</label>
@@ -31,15 +34,13 @@
         <input asp-for="Schedule" />
         <span asp-validation-for="Schedule" class="text-danger"></span>
     </div>
-    <div>
-        <input class="form-control" type="file" name="locationImage" />
-    </div>
 
-    <button type="submit">Submit</button>
+
+    <button type="submit">Edit</button>
     <a asp-controller="Home" asp-action="Index">Back to home</a>
 </form>
 @section Scripts
-{
+    {
     @{
         <partial name="_ValidationScriptsPartial" />
     }

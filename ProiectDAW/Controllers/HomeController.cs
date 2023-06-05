@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProiectDAW.Data;
 using ProiectDAW.Models;
+using System.Data;
 using System.Diagnostics;
 
 namespace ProiectDAW.Controllers
@@ -22,10 +24,26 @@ namespace ProiectDAW.Controllers
             _roleManager = roleManager;
         }
 
-        public async Task<IActionResult> Index()
+        [Authorize(Roles = "User,Admin")]
+        public IActionResult Index()
         {
-            var locations = await db.Locations.ToListAsync();
-            return View(locations);
+            var fiveStarRev = db.Reviews.OrderBy(rev => rev.Id).Last(rev => rev.Rating == 5);
+            var fiveStarLocId = db.Reviews.OrderBy(rev => rev.Id).Last(rev => rev.Rating == 5).LocationId;
+            if(fiveStarLocId != null)
+            {
+                var location = db.Locations.Find(fiveStarLocId);
+                ViewBag.location = location;
+                ViewBag.review = fiveStarRev;
+            }
+            return View();
+            
+            
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult AdminPanel()
+        {
+            return View();
         }
 
         public IActionResult Privacy()

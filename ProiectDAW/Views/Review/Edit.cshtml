@@ -1,10 +1,10 @@
 ﻿@model Review
 
 
-<h2>Add Review</h2>
+<h2>Edit Review</h2>
 
 
-<form method="post">
+<form method="post" asp-action="EditPOST" asp-route-reviewId="@ViewData["reviewId"]">
     <div asp-validation-summary="All"></div>
     <div>
         <label asp-for="LocationId" value="@ViewBag.locationId">Location Id = @ViewBag.locationId</label>
