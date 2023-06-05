@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<Location>
+@{
+    IEnumerable<Review> reviews = ViewBag.reviews;
+}
 
 <h2>Locations</h2>
 
@@ -7,16 +10,29 @@
         <tr>
             <th>Name</th>
             <th>Description</th>
+            <th>Rating</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var location in Model)
         {
+            IEnumerable<Review> locReviews = reviews.Where(r => r.LocationId == location.Id);
+            double ratingAvg = 0.0;
+            int ratingCount = 0;
+            foreach (var review in locReviews)
+            {
+                ratingAvg = ratingAvg + review.Rating;
+                ratingCount += 1;
+            }
+            ratingAvg = ratingAvg / ratingCount;
+            ratingAvg = Math.Round(ratingAvg, 2);
+
             <tr>
-                <td>
+                <td width="20%">
                     <a href="@Url.Action("Details", "Location", new { id = location.Id })">@location.Name</a>
                 </td>
-                <td>@location.Description</td>
+                <td width="60%">@location.Description</td>
+                <td width="20%">@ratingAvg</td>
             </tr>
         }
     </tbody>

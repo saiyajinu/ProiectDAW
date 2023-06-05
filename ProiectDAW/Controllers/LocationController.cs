@@ -26,6 +26,7 @@ namespace ProiectDAW.Controllers
         public async Task<IActionResult> Index()
         {
             var locations = await db.Locations.ToListAsync();
+            ViewBag.reviews = await db.Reviews.ToListAsync();
             return View(locations);
         }
 
