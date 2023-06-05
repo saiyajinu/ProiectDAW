@@ -1,17 +1,26 @@
-﻿@model IEnumerable<Location>
+﻿@model Location
 @{
     ViewData["Title"] = "Home Page";
+    Location location = Model;
 }
 
 <h1 class="text-center">ReviewPRO!<br /> Find the best place in your city!</h1>
 <br />
 <br />
-<div>Latest 5star review</div>
-@if (ViewBag.location != null)
+<h3>Latest 5star review</h3>
+@if (location != null)
 {
-    <div>@ViewBag.location.Name</div>
-    <div>@ViewBag.review.Comment</div>
-    <div>@ViewBag.location.Schedule</div>
+    <div>@location.Name</div>
+    <div>@location.Schedule</div>
+    <br />
+    <div>Reviewer: @ViewBag.userName</div>
+    <div>Comment: @ViewBag.review.Comment</div>
+
+    <img src=@location.PhotoUrl alt="no photo sowwy">
+}
+else
+{
+    <div>I guess there is no 5 star rating... yet! Maybe you could be the one to add one ;)</div>
 }
 
 

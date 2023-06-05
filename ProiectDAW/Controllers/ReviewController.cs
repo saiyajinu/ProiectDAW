@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration.UserSecrets;
 using ProiectDAW.Data;
 using ProiectDAW.Models;
+using System.Data;
 
 namespace ProiectDAW.Controllers
 {
@@ -22,6 +24,7 @@ namespace ProiectDAW.Controllers
             _roleManager = roleManager;
         }
 
+        [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> Index(int locationId)
         {
 
@@ -35,6 +38,7 @@ namespace ProiectDAW.Controllers
             return View(myViewModel);
         }
 
+        [Authorize(Roles = "User,Admin")]
         public IActionResult Create(int locationId)
         {
             ViewBag.locationId = locationId;
@@ -43,6 +47,7 @@ namespace ProiectDAW.Controllers
             return View();
         }
 
+        [Authorize(Roles = "User,Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Review review)
@@ -58,6 +63,7 @@ namespace ProiectDAW.Controllers
             return View(review);
         }
 
+        [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> Edit(int? reviewId)
         {
             if (reviewId == null || reviewId == 0)
@@ -76,6 +82,7 @@ namespace ProiectDAW.Controllers
             return View(reviewFromDb);
         }
 
+        [Authorize(Roles = "User,Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditPOST(int reviewId, Review review)
@@ -93,6 +100,7 @@ namespace ProiectDAW.Controllers
             return View(review);
         }
 
+        [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> Delete(int? reviewId)
         {
             if (reviewId == null || reviewId == 0)
@@ -111,6 +119,7 @@ namespace ProiectDAW.Controllers
             return View(reviewFromDb);
         }
 
+        [Authorize(Roles = "User,Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeletePOST(int reviewId)

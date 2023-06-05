@@ -44,6 +44,8 @@ namespace ProiectDAW.Controllers
                 return NotFound();
             }
 
+            ViewBag.locUserId = location.UserId;
+            ViewBag.actualUserId = db.Users.First(u => u.UserName == User.Identity.Name).Id;
             return View(location);
         }
 
@@ -58,8 +60,9 @@ namespace ProiectDAW.Controllers
         [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> Create(Location location, IFormFile locationImage)
         {
-            location.User = db.Users.First(u => u.UserName == User.Identity.Name);
-            if(locationImage.Length > 0)  
+            location.User = db.Users.Find(_userManager.GetUserId(User));
+            location.UserId = _userManager.GetUserId(User);
+            if (locationImage != null && locationImage.Length > 0)  
             {
                 var storagePath = Path.Combine(
                     _env.WebRootPath,
@@ -85,6 +88,7 @@ namespace ProiectDAW.Controllers
             
         }
 
+        [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> Edit(int? locationId)
         {
             if (locationId == null || locationId == 0) { 
@@ -99,13 +103,27 @@ namespace ProiectDAW.Controllers
             return View(locationFromDb);
         }
 
+        [Authorize(Roles = "User,Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditPOST(int locationId, Location location)
+        public async Task<IActionResult> EditPOST(int locationId, Location location, IFormFile locationImage)
         {
             var id = locationId;
             location.User = db.Users.First(u => u.UserName == User.Identity.Name);
             location.Id = id;
+            if (locationImage.Length > 0)
+            {
+                var storagePath = Path.Combine(
+                    _env.WebRootPath,
+                    "images",
+                    locationImage.FileName);
+                var databaseFileName = "/images/" + locationImage.FileName;
+                using (var fileStream = new FileStream(storagePath, FileMode.Create))
+                {
+                    await locationImage.CopyToAsync(fileStream);
+                }
+                location.PhotoUrl = databaseFileName;
+            }
             if (ModelState.IsValid)
             {
                 db.Update(location);
@@ -115,6 +133,7 @@ namespace ProiectDAW.Controllers
             return View(location);
         }
 
+        [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> Delete(int? locationId)
         {
             if (locationId == null || locationId == 0)
@@ -130,6 +149,7 @@ namespace ProiectDAW.Controllers
             return View(locationFromDb);
         }
 
+        [Authorize(Roles = "User,Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeletePOST(int locationId)

@@ -29,21 +29,23 @@ namespace ProiectDAW.Controllers
         {
             var fiveStarRev = db.Reviews.OrderBy(rev => rev.Id).Last(rev => rev.Rating == 5);
             var fiveStarLocId = db.Reviews.OrderBy(rev => rev.Id).Last(rev => rev.Rating == 5).LocationId;
-            if(fiveStarLocId != null)
-            {
-                var location = db.Locations.Find(fiveStarLocId);
-                ViewBag.location = location;
-                ViewBag.review = fiveStarRev;
-            }
-            return View();
+            var location = db.Locations.Find(fiveStarLocId);
+            ViewBag.review = fiveStarRev;
+            ViewBag.userName = db.Users.First(u => u.Id == fiveStarRev.UserId).UserName;
+            return View(location);
             
             
         }
 
         [Authorize(Roles = "Admin")]
-        public IActionResult AdminPanel()
+        public async Task<IActionResult> AdminPanel()
         {
-            return View();
+            MyViewModel mvm = new MyViewModel();
+            mvm.users = db.Users;
+            mvm.locations = db.Locations;
+            IEnumerable<Review> reviews = await db.Reviews.ToListAsync();
+            mvm.reviews = reviews.Reverse();
+            return View(mvm);
         }
 
         public IActionResult Privacy()

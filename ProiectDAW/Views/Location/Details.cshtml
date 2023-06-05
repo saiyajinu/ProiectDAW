@@ -1,4 +1,7 @@
 ﻿@model Location
+@{
+    var locUserId = Model.UserId;
+}
 
 <h2>@Model.Name</h2>
 
@@ -22,9 +25,11 @@
     </div>
 }
 
+@if(ViewBag.locUserId == ViewBag.actualUserId){
+    <a asp-controller="Location" asp-action="Edit" asp-route-locationId="@Model.Id">Edit</a>
 
-<a asp-controller="Location" asp-action="Edit" asp-route-locationId="@Model.Id">Edit</a>
+    <a asp-controller="Location" asp-action="Delete" asp-route-locationId="@Model.Id">Delete</a>
+}
 
-<a asp-controller="Location" asp-action="Delete" asp-route-locationId="@Model.Id">Delete</a>
 
 <a asp-controller="Review" asp-action="Index" asp-route-locationId="@Model.Id">View Reviews</a>
