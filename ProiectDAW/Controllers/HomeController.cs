@@ -27,12 +27,20 @@ namespace ProiectDAW.Controllers
         [Authorize(Roles = "User,Admin")]
         public IActionResult Index()
         {
-            var fiveStarRev = db.Reviews.OrderBy(rev => rev.Id).Last(rev => rev.Rating == 5);
-            var fiveStarLocId = db.Reviews.OrderBy(rev => rev.Id).Last(rev => rev.Rating == 5).LocationId;
-            var location = db.Locations.Find(fiveStarLocId);
-            ViewBag.review = fiveStarRev;
-            ViewBag.userName = db.Users.First(u => u.Id == fiveStarRev.UserId).UserName;
-            return View(location);
+            Review fiveStarRev;
+            int fiveStarLocId;
+            Location location;
+            if (db.Reviews.FirstOrDefault(r => r.Rating == 5) != null)
+            {
+                fiveStarRev = db.Reviews.OrderBy(rev => rev.Id).Last(rev => rev.Rating == 5);
+                fiveStarLocId = db.Reviews.OrderBy(rev => rev.Id).Last(rev => rev.Rating == 5).LocationId;
+                location = db.Locations.Find(fiveStarLocId);
+                ViewBag.review = fiveStarRev;
+                ViewBag.userName = db.Users.First(u => u.Id == fiveStarRev.UserId).UserName;
+                return View(location);
+            }
+            return View(null);
+            
             
             
         }

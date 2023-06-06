@@ -25,7 +25,15 @@
                 hasReviewId = review.Id;
             }
             <tr>
-                <td width="20%">@Model.users.First(u => u.Id == review.UserId)</td>
+                @if (Model.users.Find(review.UserId).UserName == User.Identity.Name)
+                {
+                    <td width="20%">You</td>
+                }
+                else
+                {
+                    <td width="20%">@Model.users.First(u => u.Id == review.UserId) </td>
+                }
+                
                 <td width="70%">@review.Comment</td>
                 <td>@review.Rating/5</td>
             </tr>

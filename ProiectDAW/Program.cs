@@ -1,7 +1,11 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using ProiectDAW.Data;
 using ProiectDAW.Models;
+using ProiectDAW.Services;
+using ProiectDAW.Settings;
+using SendGrid.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +22,15 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
         .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.Configure<SendGridSettings>(builder.Configuration.GetSection("SendGridSettings"));
+
+builder.Services.AddSendGrid(options => {
+    options.ApiKey = builder.Configuration.GetSection("SendGridSettings")
+    .GetValue<string>("ApiKey");
+});
+
+builder.Services.AddScoped<IEmailSender, EmailSenderService>();
 
 var app = builder.Build();
 
