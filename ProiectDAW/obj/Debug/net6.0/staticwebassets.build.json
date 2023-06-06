@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YnrQLLWeNmjat6Xg1rxCcv7hhjd+5ZeqXX0K7qdBFV8=",
+  "Hash": "nCvbnfe1bOaXo3woO8U3LtOqqUL6nT9xhFztcg4te4w=",
   "Source": "ProiectDAW",
   "BasePath": "_content/ProiectDAW",
   "Mode": "Default",
@@ -1207,6 +1207,40 @@
       "OriginalItemSpec": "wwwroot\\images\\ukx.jpg"
     },
     {
+      "Identity": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\js\\ConnectSignalR.js",
+      "SourceId": "ProiectDAW",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\",
+      "BasePath": "_content/ProiectDAW",
+      "RelativePath": "js/ConnectSignalR.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ConnectSignalR.js"
+    },
+    {
+      "Identity": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\js\\SendMessage.js",
+      "SourceId": "ProiectDAW",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\",
+      "BasePath": "_content/ProiectDAW",
+      "RelativePath": "js/SendMessage.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\SendMessage.js"
+    },
+    {
       "Identity": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\js\\site.js",
       "SourceId": "ProiectDAW",
       "SourceType": "Discovered",
@@ -2191,6 +2225,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js",
+      "SourceId": "ProiectDAW",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\",
+      "BasePath": "_content/ProiectDAW",
+      "RelativePath": "lib/microsoft/signalr/dist/browser/signalr.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js"
+    },
+    {
+      "Identity": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.min.js",
+      "SourceId": "ProiectDAW",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\",
+      "BasePath": "_content/ProiectDAW",
+      "RelativePath": "lib/microsoft/signalr/dist/browser/signalr.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.min.js"
     }
   ]
 }

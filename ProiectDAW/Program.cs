@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using ProiectDAW.Data;
+using ProiectDAW.Hubs;
 using ProiectDAW.Models;
 using ProiectDAW.Services;
 using ProiectDAW.Settings;
@@ -31,6 +32,8 @@ builder.Services.AddSendGrid(options => {
 });
 
 builder.Services.AddScoped<IEmailSender, EmailSenderService>();
+
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -64,5 +67,10 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<MessageHub>("/messagehub");
+});
 
 app.Run();

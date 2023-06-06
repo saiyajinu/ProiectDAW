@@ -37,6 +37,14 @@
       "PackagePath": "staticwebassets\\images\\ukx.jpg"
     },
     {
+      "Id": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\js\\ConnectSignalR.js",
+      "PackagePath": "staticwebassets\\js\\ConnectSignalR.js"
+    },
+    {
+      "Id": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\js\\SendMessage.js",
+      "PackagePath": "staticwebassets\\js\\SendMessage.js"
+    },
+    {
       "Id": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
@@ -267,6 +275,14 @@
     {
       "Id": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js"
+    },
+    {
+      "Id": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.min.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\browser\\signalr.min.js"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ProiectDAW.Microsoft.AspNetCore.StaticWebAssets.props",

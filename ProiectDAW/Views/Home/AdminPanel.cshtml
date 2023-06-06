@@ -75,3 +75,40 @@
     </tbody>
 
 </table>
+
+<div class="container border border-2 border-dark">
+    <div class="row">&nbsp;</div>
+    <h2>Admin Chatbox</h2>
+    <p>Connected as: <span id="identityUser">@User.Identity.Name</span></p>
+    
+    <div class="container border border-1 pt-2" style="height: 400px">
+        <div class="row p-1">
+            <div class="col-6">
+                <ul id="messagesList" style="list-style-type: none">
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="container">
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-4"><input type="text" id="userInput" hidden/></div>
+        </div>
+        <div class="row">
+            <div class="col-2"><input type="text" id="messageInput" /></div>
+            <div class="col-4">
+                <input type="button" id="sendButton" value="Send Message" />
+            </div>
+            
+        </div>
+        <div class="row">&nbsp;</div>
+    </div>
+    <div class="row">&nbsp;</div>
+</div>
+
+
+
+
+<script src="~/js/SendMessage.js"></script>

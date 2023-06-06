@@ -282,3 +282,4 @@ C:\Users\Adi\Desktop\Proiect DAW\ProiectDAW\ProiectDAW\bin\Debug\net6.0\SendGrid
 C:\Users\Adi\Desktop\Proiect DAW\ProiectDAW\ProiectDAW\bin\Debug\net6.0\StarkbankEcdsa.dll
 C:\Users\Adi\Desktop\Proiect DAW\ProiectDAW\ProiectDAW\bin\Debug\net6.0\Microsoft.Extensions.Configuration.UserSecrets.dll
 C:\Users\Adi\Desktop\Proiect DAW\ProiectDAW\ProiectDAW\bin\Debug\net6.0\SendGrid.Extensions.DependencyInjection.dll
+C:\Users\Adi\Desktop\Proiect DAW\ProiectDAW\ProiectDAW\bin\Debug\net6.0\libman.json
