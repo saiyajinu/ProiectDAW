@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var review in Model.reviews)
+        @foreach (var review in Model.reviewsIEn)
         {
             @if (Model.users.Find(review.UserId).UserName == User.Identity.Name )
             {

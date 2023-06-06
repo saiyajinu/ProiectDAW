@@ -34,7 +34,7 @@ namespace ProiectDAW.Controllers
             ViewBag.locationId = locationId;
             MyViewModel myViewModel = new MyViewModel();
             myViewModel.users = db.Users;
-            myViewModel.reviews = reviews;
+            myViewModel.reviewsIEn = reviews;
             return View(myViewModel);
         }
 

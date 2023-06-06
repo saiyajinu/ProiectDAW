@@ -49,11 +49,37 @@ namespace ProiectDAW.Controllers
         public async Task<IActionResult> AdminPanel()
         {
             MyViewModel mvm = new MyViewModel();
+            IEnumerable<ApplicationUser> users = await db.Users.ToListAsync();
+            mvm.usersIEn = users;
+
+            IEnumerable<Location> locations = await db.Locations.ToListAsync();
+            mvm.locationsIEn = locations.Reverse();
+
+            IEnumerable<Review> reviews = await db.Reviews.ToListAsync();
+            mvm.reviewsIEn = reviews.Reverse();
             mvm.users = db.Users;
             mvm.locations = db.Locations;
-            IEnumerable<Review> reviews = await db.Reviews.ToListAsync();
-            mvm.reviews = reviews.Reverse();
+
+            Dictionary<string, bool> isUserAdminDic = new Dictionary<string, bool>();
+
+            foreach(var user in users)
+            {
+                isUserAdminDic[user.Id] = false;
+            }
+            foreach (ApplicationUser user in await _userManager.GetUsersInRoleAsync("Admin"))
+            {
+                isUserAdminDic[user.Id] = true;
+            }
+            ViewBag.dic = isUserAdminDic;
+
             return View(mvm);
+        }
+
+        public async Task<IActionResult> SetAdmin(string userId)
+        {
+            ApplicationUser user = await db.Users.FindAsync(userId);
+            await _userManager.AddToRoleAsync(user, "Admin");
+            return RedirectToAction("AdminPanel");
         }
 
         public IActionResult Privacy()
