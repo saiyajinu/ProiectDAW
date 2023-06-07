@@ -1,0 +1,32 @@
+﻿@model MyViewModel
+
+<h2>My reviews</h2>
+<br />
+<br />
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Location</th>
+            <th>Comment</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach(var group in Model.myReviewsWithLocation)
+            {
+                @foreach(var rev in group)
+                {
+
+                    <td>@rev.Location.Name</td>
+                    <td>@rev.Comment</td>
+                    <td>@rev.Rating</td>
+                }
+               
+            }
+            
+        </tr>
+
+    </tbody>
+
+</table>

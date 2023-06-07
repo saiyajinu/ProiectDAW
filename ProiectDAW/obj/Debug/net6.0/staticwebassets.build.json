@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nCvbnfe1bOaXo3woO8U3LtOqqUL6nT9xhFztcg4te4w=",
+  "Hash": "UrwbME58mRulPLzK00sYLBLq5nYezsx6/7FY6fbMTgU=",
   "Source": "ProiectDAW",
   "BasePath": "_content/ProiectDAW",
   "Mode": "Default",
@@ -1188,6 +1188,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\7794e41464934e51578ad1d301778175.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\images\\download.jpg",
+      "SourceId": "ProiectDAW",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\",
+      "BasePath": "_content/ProiectDAW",
+      "RelativePath": "images/download.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\download.jpg"
     },
     {
       "Identity": "C:\\Users\\Adi\\Desktop\\Proiect DAW\\ProiectDAW\\ProiectDAW\\wwwroot\\images\\ukx.jpg",

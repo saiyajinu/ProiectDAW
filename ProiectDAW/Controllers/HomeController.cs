@@ -82,6 +82,24 @@ namespace ProiectDAW.Controllers
             return RedirectToAction("AdminPanel");
         }
 
+        public IActionResult MyReviews()
+        {
+            MyViewModel mvm = new MyViewModel();
+
+            var userId = db.Users.First(u => u.UserName == User.Identity.Name).Id;
+            var reviewsWithLocation = db.Reviews
+                .Where(rev => rev.UserId == userId)
+                .Include(r => r.Location)
+                .ToList();
+
+            var myReviewsWithLocation = reviewsWithLocation.GroupBy(rev => rev.UserId).ToList();
+
+            mvm.myReviewsWithLocation = myReviewsWithLocation;
+            mvm.locations = db.Locations;
+
+            return View(mvm);
+        }
+
         public IActionResult Privacy()
         {
             return View();
@@ -92,6 +110,8 @@ namespace ProiectDAW.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
 
     }
 }
